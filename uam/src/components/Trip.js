@@ -34,6 +34,7 @@ const material = {
 
 const DEFAULT_THEME = {
   buildingColor: [74, 80, 87],
+  buildingColor2: [255, 230, 200],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   material,
@@ -98,6 +99,7 @@ const Trip = (props) => {
   const trip = props.trip;
   const ps = currData(props.passenger, time);
   const building = props.building
+  const building_vertiport = props.building_vertiport
 
 
   const animate = useCallback(() => {
@@ -147,6 +149,17 @@ const Trip = (props) => {
       getPolygon: f => f.coordinates,
       getElevation: f => f.height,
       getFillColor: DEFAULT_THEME.buildingColor,
+      material: DEFAULT_THEME.material
+    }),
+    new PolygonLayer({
+      id: 'buildings',
+      data: building_vertiport,
+      extruded: true,
+      wireframe: false,
+      opacity: 0.5,
+      getPolygon: f => f.coordinates,
+      getElevation: f => f.height,
+      getFillColor: DEFAULT_THEME.buildingColor2,
       material: DEFAULT_THEME.material
     })
   ];
