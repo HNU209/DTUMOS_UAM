@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/DTUMOS_UAM/static/css/main.e6c13ad2.css",
-    "main.js": "/DTUMOS_UAM/static/js/main.93961b69.js",
+    "main.css": "/DTUMOS_UAM/static/css/main.4602fe88.css",
+    "main.js": "/DTUMOS_UAM/static/js/main.04072374.js",
     "static/js/483.c4717ae3.chunk.js": "/DTUMOS_UAM/static/js/483.c4717ae3.chunk.js",
     "static/js/787.847e8345.chunk.js": "/DTUMOS_UAM/static/js/787.847e8345.chunk.js",
     "index.html": "/DTUMOS_UAM/index.html",
-    "main.e6c13ad2.css.map": "/DTUMOS_UAM/static/css/main.e6c13ad2.css.map",
-    "main.93961b69.js.map": "/DTUMOS_UAM/static/js/main.93961b69.js.map",
+    "main.4602fe88.css.map": "/DTUMOS_UAM/static/css/main.4602fe88.css.map",
+    "main.04072374.js.map": "/DTUMOS_UAM/static/js/main.04072374.js.map",
     "483.c4717ae3.chunk.js.map": "/DTUMOS_UAM/static/js/483.c4717ae3.chunk.js.map",
     "787.847e8345.chunk.js.map": "/DTUMOS_UAM/static/js/787.847e8345.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.93961b69.js"
+    "static/css/main.4602fe88.css",
+    "static/js/main.04072374.js"
   ]
 }
