@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/DTUMOS_UAM/static/css/main.e6c13ad2.css",
-    "main.js": "/DTUMOS_UAM/static/js/main.dc31b91f.js",
+    "main.css": "/DTUMOS_UAM/static/css/main.72879c34.css",
+    "main.js": "/DTUMOS_UAM/static/js/main.68ec6c20.js",
     "static/js/483.6e973c90.chunk.js": "/DTUMOS_UAM/static/js/483.6e973c90.chunk.js",
     "static/js/787.5ac8978c.chunk.js": "/DTUMOS_UAM/static/js/787.5ac8978c.chunk.js",
+    "service-worker.js": "/DTUMOS_UAM/service-worker.js",
     "index.html": "/DTUMOS_UAM/index.html",
-    "main.e6c13ad2.css.map": "/DTUMOS_UAM/static/css/main.e6c13ad2.css.map",
-    "main.dc31b91f.js.map": "/DTUMOS_UAM/static/js/main.dc31b91f.js.map",
+    "main.72879c34.css.map": "/DTUMOS_UAM/static/css/main.72879c34.css.map",
+    "main.68ec6c20.js.map": "/DTUMOS_UAM/static/js/main.68ec6c20.js.map",
     "483.6e973c90.chunk.js.map": "/DTUMOS_UAM/static/js/483.6e973c90.chunk.js.map",
     "787.5ac8978c.chunk.js.map": "/DTUMOS_UAM/static/js/787.5ac8978c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.dc31b91f.js"
+    "static/css/main.72879c34.css",
+    "static/js/main.68ec6c20.js"
   ]
 }
