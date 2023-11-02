@@ -1,20 +1,16 @@
 /* global window */
-import React, {useState, useEffect} from 'react';
-import {createRoot} from 'react-dom/client';
-import {Map} from 'react-map-gl';
-import maplibregl from 'maplibre-gl';
-import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
+import React, { useState, useEffect, useCallback } from "react";
+
 import DeckGL from '@deck.gl/react';
+import {Map} from 'react-map-gl';
+
+import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {PolygonLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
-import trip from "./data/trip.json"
-import building from "./data/building.json"
-import buildings from "./data/buildings.json"
-// Source data CSV
-const DATA_file = {
-  BUILDINGS: buildings,
-  TRIPS: trip
-};
+
+import Slider from "@mui/material/Slider";
+import "../css/trip.css";
+
 
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -57,11 +53,10 @@ const ICON_MAPPING = {
 };
 
 const minTime = 0;
-const maxTime = 1440;
-const animationSpeed = 2;
-const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+const maxTime = 180;
+const animationSpeed = 1;
 const mapStyle = "mapbox://styles/spear5306/ckzcz5m8w002814o2coz02sjc";
-const MAPBOX_TOKEN = `pk.eyJ1Ijoic3BlYXI1MzA2IiwiYSI6ImNremN5Z2FrOTI0ZGgycm45Mzh3dDV6OWQifQ.kXGWHPRjnVAEHgVgLzXn2g`;
+const MAPBOX_TOKEN = `pk.eyJ1Ijoic2hlcnJ5MTAyNCIsImEiOiJjbG00dmtic3YwbGNoM2Zxb3V5NmhxZDZ6In0.ZBrAsHLwNihh7xqTify5hQ`;
 
 const returnAnimationTime = (time) => {
     if (time > maxTime) {
@@ -85,7 +80,7 @@ const returnAnimationTime = (time) => {
   const currData = (data, time) => {
     const arr = [];
     data.forEach((v) => {
-      const timestamp = v.timestamps;
+      const timestamp = v.timestamp;
       const s_t = timestamp[0];
       const e_t = timestamp[timestamp.length - 1];
       if (s_t <= time && e_t >= time) {
@@ -96,17 +91,6 @@ const returnAnimationTime = (time) => {
   };
 
 
-// export default function App({
-//   buildings = DATA_URL.BUILDINGS,
-//   trips = DATA_URL.TRIPS,
-//   trailLength = 30,
-//   initialViewState = INITIAL_VIEW_STATE,
-//   mapStyle = MAP_STYLE,
-//   theme = DEFAULT_THEME,
-//   loopLength = 250, // unit corresponds to the timestamp in source data
-//   animationSpeed = 0.3 
-// }) 
-
 const Trip = (props) => {
   const [time, setTime] = useState(minTime);
   const [animation] = useState({});
@@ -114,7 +98,7 @@ const Trip = (props) => {
   const trip = props.trip;
   const ps = currData(props.passenger, time);
   const building = props.building
-  //   const empty = currData(props.emptyTaxi, time);
+
 
   const animate = useCallback(() => {
     setTime((time) => returnAnimationTime(time));
@@ -130,42 +114,71 @@ const Trip = (props) => {
     new TripsLayer({  
       id: 'trips',
       data: trip,
-      getPath: d => d.path,
+      getPath: d => d.route,
       getTimestamps: d => d.timestamp,
       getColor: [255, 0, 0],
       opacity: 0.3,
-      widthMinPixels: 2,
+      widthMinPixels: 10,
       rounded: true,
-      trailLength,
+      trailLength : 0.8,
       currentTime: time,
 
       shadowEnabled: false
     }),
+    new TripsLayer({  
+      id: 'trips',
+      data: ps,
+      getPath: d => d.route,
+      getTimestamps: d => d.timestamp,
+      getColor: [255, 0, 255],
+      opacity: 0.3,
+      widthMinPixels: 10,
+      rounded: true,
+      trailLength : 0.8,
+      currentTime: time,
+      shadowEnabled: false
+    }),
     new PolygonLayer({
       id: 'buildings',
-      data: buildings,
+      data: building,
       extruded: true,
       wireframe: false,
       opacity: 0.5,
       getPolygon: f => f.coordinates,
       getElevation: f => f.height,
-      getFillColor: theme.buildingColor,
-      material: theme.material
+      getFillColor: DEFAULT_THEME.buildingColor,
+      material: DEFAULT_THEME.material
     })
   ];
+  
+  const SliderChange = (value) => {
+    const time = value.target.value;
+    setTime(time);
+  };
+
+  const [hour, minute] = returnAnimationDisplayTime(time);
 
   return (
-    <DeckGL
-      layers={layers}
-      effects={theme.effects}
-      initialViewState={initialViewState}
-      controller={true}
-    >
-      <Map reuseMaps mapLib={maplibregl} mapStyle={mapStyle} preventStyleDiffing={true} />
-    </DeckGL>
+    <div className="trip-container" style={{ position: "relative" }}>
+      <DeckGL
+        effects={DEFAULT_THEME.effects}
+        initialViewState={INITIAL_VIEW_STATE}
+        controller={true}
+        layers={layers}
+      >
+        <Map mapStyle={mapStyle} mapboxAccessToken={MAPBOX_TOKEN} preventStyleDiffing={true}/>
+      </DeckGL>
+      <h1 className="time">TIME : {`${hour} : ${minute}`}</h1>
+      <Slider
+        id="slider"
+        value={time}
+        min={minTime}
+        max={maxTime}
+        onChange={SliderChange}
+        track="inverted"
+      />
+    </div>
   );
-}
+};
 
-// export function renderToDOM(container) {
-//   createRoot(container).render(<App />);
-// }
+export default Trip;

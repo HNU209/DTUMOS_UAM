@@ -1,4 +1,4 @@
-import loding from '../img/loding.png'
+import loding from '../image/loding.png'
 import '../css/splash.css'
 
 const Splash = () => {
