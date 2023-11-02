@@ -32,12 +32,20 @@ const material = {
   specularColor: [60, 64, 70]
 };
 
+const material2 = {
+  ambient: 0.3,
+  diffuse: 0.6,
+  shininess: 32,
+  specularCol: [60, 64, 70]
+};
+
 const DEFAULT_THEME = {
-  buildingColor: [74, 80, 87],
-  buildingColor2: [255, 230, 200],
+  buildingColor: [228, 228, 228],
+  buildingColor2: [255, 0, 0],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   material,
+  material2,
   effects: [lightingEffect]
 };
 
@@ -54,7 +62,7 @@ const ICON_MAPPING = {
 };
 
 const minTime = 0;
-const maxTime = 180;
+const maxTime = 210;
 const animationSpeed = 1;
 const mapStyle = "mapbox://styles/spear5306/ckzcz5m8w002814o2coz02sjc";
 const MAPBOX_TOKEN = `pk.eyJ1Ijoic2hlcnJ5MTAyNCIsImEiOiJjbG00dmtic3YwbGNoM2Zxb3V5NmhxZDZ6In0.ZBrAsHLwNihh7xqTify5hQ`;
@@ -118,11 +126,11 @@ const Trip = (props) => {
       data: trip,
       getPath: d => d.route,
       getTimestamps: d => d.timestamp,
-      getColor: [255, 0, 0],
-      opacity: 0.3,
-      widthMinPixels: 10,
+      getColor: [255, 0, 255],
+      opacity: 0.7,
+      widthMinPixels: 4,
       rounded: true,
-      trailLength : 0.8,
+      trailLength : 0.5,
       currentTime: time,
 
       shadowEnabled: false
@@ -132,11 +140,11 @@ const Trip = (props) => {
       data: ps,
       getPath: d => d.route,
       getTimestamps: d => d.timestamp,
-      getColor: [255, 0, 255],
-      opacity: 0.3,
-      widthMinPixels: 10,
+      getColor: [255, 255, 50],
+      opacity: 0.7,
+      widthMinPixels: 4,
       rounded: true,
-      trailLength : 0.8,
+      trailLength : 0.5,
       currentTime: time,
       shadowEnabled: false
     }),
@@ -160,7 +168,7 @@ const Trip = (props) => {
       getPolygon: f => f.coordinates,
       getElevation: f => f.height,
       getFillColor: DEFAULT_THEME.buildingColor2,
-      material: DEFAULT_THEME.material
+      material: DEFAULT_THEME.material2
     })
   ];
   

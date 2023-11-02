@@ -9,6 +9,7 @@ import "./css/app.css";
 const fetchData = (FilE_NAME) => {
   const res = axios.get(
     `https://raw.githubusercontent.com/HNU209/DTUMOS_UAM/main/uam/src/data/${FilE_NAME}.json`
+    // `C:/Research/UAM/DTUMOS_UAM/uam/src/data/${FilE_NAME}.json`
   );
   const data = res.then((r) => r.data);
   return data;
@@ -25,7 +26,7 @@ const App = () => {
     const TRIP = await fetchData("trip");
     const PASSENGER = await fetchData("ps");
     const building = await fetchData("buildings");
-    // const building_vertiport = await fetchData("building_vertiport");
+    const building_vertiport = await fetchData("building_vertiport");
 
     setTrip((prev) => TRIP);
     setPassenger((prev) => PASSENGER);
