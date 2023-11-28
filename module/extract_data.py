@@ -7,7 +7,7 @@ from datetime import datetime
 from shapely.geometry import Point
 
 from module.osrm_routing import *
-from module.uam_routing import *
+from module.uam_osrm_routing import *
 from module.helper import euclid_distance_cal
 import random as rd
 
