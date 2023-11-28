@@ -23,7 +23,7 @@ const App = () => {
   const [isloaded, setIsLoaded] = useState(false);
 
   const getData = useCallback(async () => {
-    const TRIP = await fetchData("trip");
+    const TRIP = await fetchData("trips");
     const PASSENGER = await fetchData("ps");
     const building = await fetchData("buildings");
     const building_vertiport = await fetchData("building_vertiport");
