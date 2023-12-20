@@ -143,7 +143,7 @@ const Trip = (props) => {
       getTimestamps: d => d.timestamp,
       getColor: [255, 255, 50],
       opacity: 0.7,
-      widthMinPixels: 4,
+      widthMinPixels: 3,
       rounded: true,
       trailLength : 0.5,
       currentTime: time,
@@ -166,7 +166,7 @@ const Trip = (props) => {
       opacity: 0.7,
       widthMinPixels: 3,
       rounded: true,
-      trailLength : 0.5,
+      trailLength : 0.4,
       currentTime: time,
       shadowEnabled: false
     }),
