@@ -20,16 +20,20 @@ const App = () => {
   const [building, setBuilding] = useState([]);
   const [building_vertiport, setBuildingVertiport] = useState([]);
   const [passenger, setPassenger] = useState([]);
+  const [passenger_ov, setPassenger_ov] = useState([]);
+
   const [isloaded, setIsLoaded] = useState(false);
 
   const getData = useCallback(async () => {
     const TRIP = await fetchData("trips");
     const PASSENGER = await fetchData("ps");
+    const PASSENGER_OV = await fetchData("ps_ov");
     const building = await fetchData("buildings");
     const building_vertiport = await fetchData("building_vertiport");
 
     setTrip((prev) => TRIP);
     setPassenger((prev) => PASSENGER);
+    setPassenger_ov((prev) => PASSENGER_OV);
     setBuilding((prev) => building);
     setBuildingVertiport((prev) => building_vertiport);
     setIsLoaded(true);
@@ -43,7 +47,7 @@ const App = () => {
     <div className="container">
       {!isloaded && <Splash />}
       {isloaded && (
-        <Trip trip={trip} building={building} building_vertiport={building_vertiport} passenger={passenger} />
+        <Trip trip={trip} building={building} building_vertiport={building_vertiport} passenger={passenger} passenger_ov={passenger_ov} />
       )}
     </div>
   );

@@ -106,8 +106,9 @@ const Trip = (props) => {
 
   const trip = props.trip;
   const ps = currData(props.passenger, time);
-  const building = props.building
-  const building_vertiport = props.building_vertiport
+  const ps_ov = props.passenger_ov;
+  const building = props.building;
+  const building_vertiport = props.building_vertiport;
 
 
   const animate = useCallback(() => {
@@ -143,6 +144,27 @@ const Trip = (props) => {
       getColor: [255, 255, 50],
       opacity: 0.7,
       widthMinPixels: 4,
+      rounded: true,
+      trailLength : 0.5,
+      currentTime: time,
+      shadowEnabled: false
+    }),
+    new TripsLayer({  
+      id: 'trips',
+      data: ps_ov,
+      getPath: d => d.path,
+      getTimestamps: d => d.timestamp,
+      getColor: d =>{
+        const vendorColorMap = {
+          0: [255, 255, 0], 
+          1: [0, 255, 0],   
+          2: [0, 0, 255],   
+          3: [0, 0, 128]
+        };
+        return vendorColorMap[d.vendor] || [255, 255, 50]; // Default color for other vendors
+      },
+      opacity: 0.7,
+      widthMinPixels: 3,
       rounded: true,
       trailLength : 0.5,
       currentTime: time,
