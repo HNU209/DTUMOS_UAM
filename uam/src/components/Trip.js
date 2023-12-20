@@ -62,7 +62,7 @@ const ICON_MAPPING = {
 };
 
 const minTime = 0;
-const maxTime = 210;
+const maxTime = 220;
 const animationSpeed = 1;
 const mapStyle = "mapbox://styles/spear5306/ckzcz5m8w002814o2coz02sjc";
 const MAPBOX_TOKEN = `pk.eyJ1Ijoic2hlcnJ5MTAyNCIsImEiOiJjbG00dmtic3YwbGNoM2Zxb3V5NmhxZDZ6In0.ZBrAsHLwNihh7xqTify5hQ`;
@@ -161,7 +161,7 @@ const Trip = (props) => {
           2: [0, 0, 255],   
           3: [0, 0, 128]
         };
-        return vendorColorMap[d.vendor] || [255, 255, 50]; // Default color for other vendors
+        return vendorColorMap[d.vendor] || [255, 255, 50];
       },
       opacity: 0.7,
       widthMinPixels: 3,
@@ -186,7 +186,7 @@ const Trip = (props) => {
       data: building_vertiport,
       extruded: true,
       wireframe: false,
-      opacity: 0.5,
+      opacity: 0.2,
       getPolygon: f => f.coordinates,
       getElevation: f => f.height,
       getFillColor: DEFAULT_THEME.buildingColor2,

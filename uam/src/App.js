@@ -27,7 +27,7 @@ const App = () => {
   const getData = useCallback(async () => {
     const TRIP = await fetchData("trips");
     const PASSENGER = await fetchData("ps");
-    const PASSENGER_OV = await fetchData("ps_ov");
+    const PASSENGER_OV = await fetchData("ps_OV");
     const building = await fetchData("buildings");
     const building_vertiport = await fetchData("building_vertiport");
 
