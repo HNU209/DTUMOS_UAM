@@ -7,6 +7,7 @@ import {Map} from 'react-map-gl';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {PolygonLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
+import {IconLayer} from "@deck.gl/layers";
 
 import Slider from "@mui/material/Slider";
 import "../css/trip.css";
@@ -41,7 +42,7 @@ const material2 = {
 
 const DEFAULT_THEME = {
   buildingColor: [228, 228, 228],
-  buildingColor2: [255, 0, 0],
+  buildingColor2: [255, 255, 255],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   material,
@@ -104,6 +105,7 @@ const Trip = (props) => {
   const [time, setTime] = useState(minTime);
   const [animation] = useState({});
 
+  const icon = props.icon;
   const trip = props.trip;
   const ps = currData(props.passenger, time);
   const ps_ov = props.passenger_ov;
@@ -122,6 +124,23 @@ const Trip = (props) => {
   }, [animation, animate]);
 
   const layers = [
+    new IconLayer({
+      id: "location",
+      data: icon,
+      sizeScale: 7,
+      iconAtlas:
+        "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
+      iconMapping: ICON_MAPPING,
+      getIcon: d => "marker",
+      getSize: 1.5,
+      getPosition: d => d.coordinates,
+      getColor: d => d.color,
+      opacity: 1,
+      mipmaps: false,
+      pickable: true,
+      radiusMinPixels: 2,
+      radiusMaxPixels: 2,
+    }),
     new TripsLayer({  
       id: 'trips',
       data: trip,
@@ -129,11 +148,10 @@ const Trip = (props) => {
       getTimestamps: d => d.timestamp,
       getColor: [255, 0, 255],
       opacity: 0.7,
-      widthMinPixels: 4,
+      widthMinPixels: 3,
       rounded: true,
       trailLength : 0.5,
       currentTime: time,
-
       shadowEnabled: false
     }),
     new TripsLayer({  
@@ -186,7 +204,7 @@ const Trip = (props) => {
       data: building_vertiport,
       extruded: true,
       wireframe: false,
-      opacity: 0.2,
+      opacity: 0.01,
       getPolygon: f => f.coordinates,
       getElevation: f => f.height,
       getFillColor: DEFAULT_THEME.buildingColor2,
