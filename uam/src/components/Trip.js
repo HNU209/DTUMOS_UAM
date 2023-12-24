@@ -8,8 +8,8 @@ import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {PolygonLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
 import {IconLayer} from "@deck.gl/layers";
-import { ScatterplotLayer } from "@deck.gl/layers";
-import { LineLayer } from "@deck.gl/layers";
+import {ScatterplotLayer} from "@deck.gl/layers";
+import {LineLayer} from "@deck.gl/layers";
 
 import Slider from "@mui/material/Slider";
 import "../css/trip.css";
@@ -194,20 +194,28 @@ const Trip = (props) => {
       shadowEnabled: false
     }),
     new ScatterplotLayer({
-      id: 'scatter-plot',
-      data: nodes,
-      getPosition: d => d.coordinates,
-      getColor: [255,0,0],
-      opacity: 0.8,
-      getRadius: 20,
-      filled: true,
+      id : "ScatterplotLayer",
+      data : nodes,
+      pickable:true,
+      opacity:0.8,
+      stroked:true,
+      filled:true,
+      radius_scale:6,
+      radius_min_pixels:1,
+      radius_max_pixels:100,
+      line_width_min_pixels:1,
+      get_position:"coordinates",
+      get_radius: 100,
+      get_fill_color:[255, 255, 0],
+      get_line_color:[0, 0, 0],
     }),
+
     new LineLayer({
       id: 'line-layer',
       data: links,
       getSourcePosition: d => nodes.find(node => node.id === d.source).coordinates,
       getTargetPosition: d => nodes.find(node => node.id === d.target).coordinates,
-      getColor: [255,0,0],
+      getColor: [255,144,0],
     }),
 
 

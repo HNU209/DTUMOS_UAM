@@ -22,8 +22,8 @@ const App = () => {
   const [passenger_ov, setPassenger_ov] = useState([]);
   const [building, setBuilding] = useState([]);
   const [building_vertiport, setBuildingVertiport] = useState([]);
-  const [nodes, setLines] = useState([]);
-  const [links, setNodes] = useState([]);
+  const [nodes, setNodes] = useState([]);
+  const [links, setLinks] = useState([]);
 
   const [isloaded, setIsLoaded] = useState(false);
 
@@ -44,7 +44,7 @@ const App = () => {
     setBuilding((prev) => BUILDING);
     setBuildingVertiport((prev) => BUILDING_VERTIPORT);
     setNodes((prev) => NODES);
-    setLines((prev) => LINKS);
+    setLinks((prev) => LINKS);
 
     setIsLoaded(true);
   }, []);
