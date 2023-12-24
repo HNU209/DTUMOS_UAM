@@ -197,8 +197,8 @@ const Trip = (props) => {
     new LineLayer({
       id: 'line-layer',
       data: links,
-      getSourcePosition: d => nodes.find(node => node.id === d.source).coordinates,
-      getTargetPosition: d => nodes.find(node => node.id === d.target).coordinates,
+      getSourcePosition: d => nodes.find(node => node.name === d.source).coordinates,
+      getTargetPosition: d => nodes.find(node => node.name === d.target).coordinates,
       getColor: [255,144,0],
       opacity:0.5,
       highlight_color: [255, 255, 0],
