@@ -193,6 +193,19 @@ const Trip = (props) => {
       currentTime: time,
       shadowEnabled: false
     }),
+    
+    new LineLayer({
+      id: 'line-layer',
+      data: links,
+      getSourcePosition: d => nodes.find(node => node.id === d.source).coordinates,
+      getTargetPosition: d => nodes.find(node => node.id === d.target).coordinates,
+      getColor: [255,144,0],
+      opacity:0.5,
+      highlight_color: [255, 255, 0],
+      auto_highlight: true,
+      // picking_radius: 10,
+      widthMinPixels: 1,
+    }),
     new ScatterplotLayer({
       id : "ScatterplotLayer",
       data : nodes,
@@ -200,24 +213,15 @@ const Trip = (props) => {
       opacity:0.8,
       stroked:true,
       filled:true,
-      radius_scale:6,
-      radius_min_pixels:1,
-      radius_max_pixels:100,
-      line_width_min_pixels:1,
-      get_position:"coordinates",
-      get_radius: 100,
-      get_fill_color:[255, 255, 0],
-      get_line_color:[0, 0, 0],
+      radiusScale:1,
+      radiusMinPixels:1,
+      radiusMaxPixels:10,
+      lineWidthMinPixels: 1,
+      getPosition: d => d.coordinates,
+      getRradius: d => 100,
+      getFillColor:[255, 0, 0],
+      getLineColor:[255, 0, 0],
     }),
-
-    new LineLayer({
-      id: 'line-layer',
-      data: links,
-      getSourcePosition: d => nodes.find(node => node.id === d.source).coordinates,
-      getTargetPosition: d => nodes.find(node => node.id === d.target).coordinates,
-      getColor: [255,144,0],
-    }),
-
 
     new PolygonLayer({
       id: 'buildings',
