@@ -23,7 +23,7 @@ const App = () => {
   const [building, setBuilding] = useState([]);
   const [building_vertiport, setBuildingVertiport] = useState([]);
   const [nodes, setLines] = useState([]);
-  const [lines, setNodes] = useState([]);
+  const [links, setNodes] = useState([]);
 
   const [isloaded, setIsLoaded] = useState(false);
 
@@ -35,7 +35,7 @@ const App = () => {
     const BUILDING = await fetchData("buildings");
     const BUILDING_VERTIPORT = await fetchData("building_vertiport");
     const NODES = await fetchData("nodes");
-    const LINES = await fetchData("links");
+    const LINKS = await fetchData("links");
 
     setIcon((prev) => ICON);
     setTrip((prev) => TRIP);
@@ -44,7 +44,7 @@ const App = () => {
     setBuilding((prev) => BUILDING);
     setBuildingVertiport((prev) => BUILDING_VERTIPORT);
     setNodes((prev) => NODES);
-    setLines((prev) => LINES);
+    setLines((prev) => LINKS);
 
     setIsLoaded(true);
   }, []);
@@ -59,7 +59,7 @@ const App = () => {
       {isloaded && (
         <Trip trip={trip} building={building} building_vertiport={building_vertiport}
               passenger={passenger} passenger_ov={passenger_ov} icon={icon}
-              nodes={nodes} lines={lines} />
+              nodes={nodes} links={links} />
       )}
     </div>
   );

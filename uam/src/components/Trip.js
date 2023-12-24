@@ -114,7 +114,7 @@ const Trip = (props) => {
   const building = props.building;
   const building_vertiport = props.building_vertiport;
   const nodes = props.nodes;
-  const lines = props.lines;
+  const links = props.links;
 
 
 
@@ -198,13 +198,15 @@ const Trip = (props) => {
       data: nodes,
       getPosition: d => d.coordinates,
       getColor: [255,0,0],
-
+      opacity: 0.8,
+      getRadius: 20,
+      filled: true,
     }),
     new LineLayer({
       id: 'line-layer',
-      data: lines,
-      getSourcePosition: d => nodes.find(node => node.id === d.source).position,
-      getTargetPosition: d => nodes.find(node => node.id === d.target).position,
+      data: links,
+      getSourcePosition: d => nodes.find(node => node.id === d.source).coordinates,
+      getTargetPosition: d => nodes.find(node => node.id === d.target).coordinates,
       getColor: [255,0,0],
     }),
 
