@@ -8,6 +8,8 @@ import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {PolygonLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
 import {IconLayer} from "@deck.gl/layers";
+import { ScatterplotLayer } from "@deck.gl/layers";
+import { LineLayer } from "@deck.gl/layers";
 
 import Slider from "@mui/material/Slider";
 import "../css/trip.css";
@@ -111,6 +113,9 @@ const Trip = (props) => {
   const ps_ov = props.passenger_ov;
   const building = props.building;
   const building_vertiport = props.building_vertiport;
+  const nodes = props.nodes;
+  const lines = props.lines;
+
 
 
   const animate = useCallback(() => {
@@ -188,6 +193,22 @@ const Trip = (props) => {
       currentTime: time,
       shadowEnabled: false
     }),
+    new ScatterplotLayer({
+      id: 'scatter-plot',
+      data: nodes,
+      getPosition: d => d.coordinates,
+      getColor: [255,0,0],
+
+    }),
+    new LineLayer({
+      id: 'line-layer',
+      data: lines,
+      getSourcePosition: d => nodes.find(node => node.id === d.source).position,
+      getTargetPosition: d => nodes.find(node => node.id === d.target).position,
+      getColor: [255,0,0],
+    }),
+
+
     new PolygonLayer({
       id: 'buildings',
       data: building,
