@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/DTUMOS_UAM/static/css/main.72879c34.css",
-    "main.js": "/DTUMOS_UAM/static/js/main.2752a1b6.js",
+    "main.js": "/DTUMOS_UAM/static/js/main.04a0420a.js",
     "static/js/483.6e973c90.chunk.js": "/DTUMOS_UAM/static/js/483.6e973c90.chunk.js",
     "static/js/787.5ac8978c.chunk.js": "/DTUMOS_UAM/static/js/787.5ac8978c.chunk.js",
     "service-worker.js": "/DTUMOS_UAM/service-worker.js",
     "index.html": "/DTUMOS_UAM/index.html",
     "main.72879c34.css.map": "/DTUMOS_UAM/static/css/main.72879c34.css.map",
-    "main.2752a1b6.js.map": "/DTUMOS_UAM/static/js/main.2752a1b6.js.map",
+    "main.04a0420a.js.map": "/DTUMOS_UAM/static/js/main.04a0420a.js.map",
     "483.6e973c90.chunk.js.map": "/DTUMOS_UAM/static/js/483.6e973c90.chunk.js.map",
     "787.5ac8978c.chunk.js.map": "/DTUMOS_UAM/static/js/787.5ac8978c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.72879c34.css",
-    "static/js/main.2752a1b6.js"
+    "static/js/main.04a0420a.js"
   ]
 }
