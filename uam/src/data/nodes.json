@@ -126,5 +126,165 @@
 			37.527232,
 			100
 		]
+	},
+	{
+		"name": "Entrance_0",
+		"coordinates": [
+			126.96984,
+			37.55466,
+			0
+		]
+	},
+	{
+		"name": "gate_0",
+		"coordinates": [
+			126.970546,
+			37.554778,
+			0
+		]
+	},
+	{
+		"name": "security_0",
+		"coordinates": [
+			126.970491,
+			37.553822,
+			0
+		]
+	},
+	{
+		"name": "fato_0",
+		"coordinates": [
+			126.970492,
+			37.553823,
+			60
+		]
+	},
+	{
+		"name": "start_0",
+		"coordinates": [
+			126.97062,
+			37.553106,
+			60
+		]
+	},
+	{
+		"name": "Entrance_1",
+		"coordinates": [
+			126.80169,
+			37.55976,
+			0
+		]
+	},
+	{
+		"name": "gate_1",
+		"coordinates": [
+			126.801447,
+			37.559678,
+			0
+		]
+	},
+	{
+		"name": "security_1",
+		"coordinates": [
+			126.802289,
+			37.559076,
+			0
+		]
+	},
+	{
+		"name": "fato_1",
+		"coordinates": [
+			126.80229,
+			37.559077,
+			10
+		]
+	},
+	{
+		"name": "start_1",
+		"coordinates": [
+			126.802997,
+			37.558661,
+			10
+		]
+	},
+	{
+		"name": "Entrance_2",
+		"coordinates": [
+			127.10528,
+			37.48544,
+			0
+		]
+	},
+	{
+		"name": "gate_2",
+		"coordinates": [
+			127.104605,
+			37.485188,
+			0
+		]
+	},
+	{
+		"name": "security_2",
+		"coordinates": [
+			127.104424,
+			37.485435,
+			0
+		]
+	},
+	{
+		"name": "fato_2",
+		"coordinates": [
+			127.104425,
+			37.485436,
+			10
+		]
+	},
+	{
+		"name": "start_2",
+		"coordinates": [
+			127.104194,
+			37.485743,
+			10
+		]
+	},
+	{
+		"name": "Entrance_3",
+		"coordinates": [
+			127.00887,
+			37.5676,
+			0
+		]
+	},
+	{
+		"name": "gate_3",
+		"coordinates": [
+			127.009632,
+			37.5675,
+			0
+		]
+	},
+	{
+		"name": "security_3",
+		"coordinates": [
+			127.009709,
+			37.567087,
+			0
+		]
+	},
+	{
+		"name": "fato_3",
+		"coordinates": [
+			127.00971,
+			37.567088,
+			10
+		]
+	},
+	{
+		"name": "start_3",
+		"coordinates": [
+			127.00937,
+			37.56674,
+			10
+		]
 	}
 ]
