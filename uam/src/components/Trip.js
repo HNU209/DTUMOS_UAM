@@ -199,7 +199,7 @@ const Trip = (props) => {
       data: links,
       getSourcePosition: d => nodes.find(node => node.name === d.source).coordinates,
       getTargetPosition: d => nodes.find(node => node.name === d.target).coordinates,
-      getColor: [128,128,128],
+      getColor: [200,200,200],
       opacity:0.3,
       highlight_color: [255, 255, 0],
       auto_highlight: true,
