@@ -12,6 +12,7 @@ import {ScatterplotLayer} from "@deck.gl/layers";
 import {LineLayer} from "@deck.gl/layers";
 
 import Slider from "@mui/material/Slider";
+import legend from "../image/legend.png";
 import "../css/trip.css";
 
 
@@ -55,7 +56,7 @@ const DEFAULT_THEME = {
 const INITIAL_VIEW_STATE = { 
   longitude: 126.98, // 126.98 , -74
   latitude: 37.57, // 37.57 , 40.72
-  zoom: 13,
+  zoom: 10,
   pitch: 45,
   bearing: 0
 };
@@ -65,7 +66,7 @@ const ICON_MAPPING = {
 };
 
 const minTime = 0;
-const maxTime = 220;
+const maxTime = 730;
 const animationSpeed = 1;
 const mapStyle = "mapbox://styles/spear5306/ckzcz5m8w002814o2coz02sjc";
 const MAPBOX_TOKEN = `pk.eyJ1Ijoic2hlcnJ5MTAyNCIsImEiOiJjbG00dmtic3YwbGNoM2Zxb3V5NmhxZDZ6In0.ZBrAsHLwNihh7xqTify5hQ`;
@@ -274,6 +275,8 @@ const Trip = (props) => {
         onChange={SliderChange}
         track="inverted"
       />
+      <img className="legend" src={legend} alt="legend"
+            style={{ position: "absolute", top: "30px", left: "50px", width: "10%", height: "13.2%" }}></img>
     </div>
   );
 };
