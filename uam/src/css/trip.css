@@ -26,6 +26,8 @@
 }
 .legend {
     position: absolute;
-    bottom: 0%;
-    right: 0%;
+    top: 30px;
+    left: 50px;
+    width: 10%;
+    height: 13.2%;
 }

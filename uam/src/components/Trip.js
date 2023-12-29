@@ -275,8 +275,7 @@ const Trip = (props) => {
         onChange={SliderChange}
         track="inverted"
       />
-      <img className="legend" src={legend} alt="legend"
-            style={{ position: "absolute", top: "30px", left: "50px", width: "10%", height: "13.2%" }}></img>
+      <img className="legend" src={legend} alt="legend" ></img>
     </div>
   );
 };
