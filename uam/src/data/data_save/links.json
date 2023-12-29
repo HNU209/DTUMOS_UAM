@@ -1,0 +1,126 @@
+[
+	{
+		"source": "\uae40\ud3ec\uacf5\ud56d",
+		"target": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac151"
+	},
+	{
+		"source": "\uc11c\uc6b8\uc5ed",
+		"target": "\uc11c\uc6b8\uc5ed \ud55c\uac151"
+	},
+	{
+		"source": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790",
+		"target": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac151"
+	},
+	{
+		"source": "\uc218\uc11c\uc5ed",
+		"target": "\uc218\uc11c\uc5ed \ud55c\uac151"
+	},
+	{
+		"source": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac151",
+		"target": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac152"
+	},
+	{
+		"source": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac152",
+		"target": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac153"
+	},
+	{
+		"source": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac153",
+		"target": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac154"
+	},
+	{
+		"source": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac154",
+		"target": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac155"
+	},
+	{
+		"source": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac155",
+		"target": "\uc11c\uc6b8\uc5ed \ud55c\uac151"
+	},
+	{
+		"source": "\uc11c\uc6b8\uc5ed \ud55c\uac151",
+		"target": "\uc11c\uc6b8\uc5ed \ud55c\uac152"
+	},
+	{
+		"source": "\uc11c\uc6b8\uc5ed \ud55c\uac152",
+		"target": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac151"
+	},
+	{
+		"source": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac151",
+		"target": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac152"
+	},
+	{
+		"source": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac152",
+		"target": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac153"
+	},
+	{
+		"source": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac153",
+		"target": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac154"
+	},
+	{
+		"source": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud55c\uac154",
+		"target": "\uc218\uc11c\uc5ed \ud55c\uac151"
+	},
+	{
+		"source": "Entrance_0",
+		"target": "gate_0"
+	},
+	{
+		"source": "gate_0",
+		"target": "security_0"
+	},
+	{
+		"source": "security_0",
+		"target": "fato_0"
+	},
+	{
+		"source": "fato_0",
+		"target": "start_0"
+	},
+	{
+		"source": "Entrance_1",
+		"target": "gate_1"
+	},
+	{
+		"source": "gate_1",
+		"target": "security_1"
+	},
+	{
+		"source": "security_1",
+		"target": "fato_1"
+	},
+	{
+		"source": "fato_1",
+		"target": "start_1"
+	},
+	{
+		"source": "Entrance_2",
+		"target": "gate_2"
+	},
+	{
+		"source": "gate_2",
+		"target": "security_2"
+	},
+	{
+		"source": "security_2",
+		"target": "fato_2"
+	},
+	{
+		"source": "fato_2",
+		"target": "start_2"
+	},
+	{
+		"source": "Entrance_3",
+		"target": "gate_3"
+	},
+	{
+		"source": "gate_3",
+		"target": "security_3"
+	},
+	{
+		"source": "security_3",
+		"target": "fato_3"
+	},
+	{
+		"source": "fato_3",
+		"target": "start_3"
+	}
+]
