@@ -9,7 +9,6 @@ import "./css/app.css";
 const fetchData = (FilE_NAME) => {
   const res = axios.get(
     `https://raw.githubusercontent.com/HNU209/DTUMOS_UAM/main/uam/src/data/${FilE_NAME}.json`
-    // `C:/Research/UAM/DTUMOS_UAM/uam/src/data/${FilE_NAME}.json`
   );
   const data = res.then((r) => r.data);
   return data;
