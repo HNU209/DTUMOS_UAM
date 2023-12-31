@@ -8,7 +8,7 @@ import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {PolygonLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
 import {IconLayer} from "@deck.gl/layers";
-import {ScatterplotLayer} from "@deck.gl/layers";
+// import {ScatterplotLayer} from "@deck.gl/layers";
 import {LineLayer} from "@deck.gl/layers";
 
 import Slider from "@mui/material/Slider";
