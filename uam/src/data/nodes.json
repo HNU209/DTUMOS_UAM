@@ -288,39 +288,7 @@
 		]
 	},
 	{
-		"name": "Entrance_0",
-		"coordinates": [
-			126.96984,
-			37.55466,
-			0
-		]
-	},
-	{
-		"name": "gate_0",
-		"coordinates": [
-			126.970546,
-			37.554778,
-			0
-		]
-	},
-	{
-		"name": "security_0",
-		"coordinates": [
-			126.970491,
-			37.553822,
-			0
-		]
-	},
-	{
-		"name": "fato_0",
-		"coordinates": [
-			126.970492,
-			37.553823,
-			60
-		]
-	},
-	{
-		"name": "start_0",
+		"name": "fato_d0",
 		"coordinates": [
 			126.97062,
 			37.553106,
@@ -328,39 +296,23 @@
 		]
 	},
 	{
-		"name": "Entrance_1",
+		"name": "gate_d0",
 		"coordinates": [
-			126.80169,
-			37.55976,
+			126.97061,
+			37.553105,
 			0
 		]
 	},
 	{
-		"name": "gate_1",
+		"name": "entrance_d0",
 		"coordinates": [
-			126.801447,
-			37.559678,
+			126.96984,
+			37.55466,
 			0
 		]
 	},
 	{
-		"name": "security_1",
-		"coordinates": [
-			126.802289,
-			37.559076,
-			0
-		]
-	},
-	{
-		"name": "fato_1",
-		"coordinates": [
-			126.80229,
-			37.559077,
-			10
-		]
-	},
-	{
-		"name": "start_1",
+		"name": "fato_d1",
 		"coordinates": [
 			126.802997,
 			37.558661,
@@ -368,39 +320,23 @@
 		]
 	},
 	{
-		"name": "Entrance_2",
+		"name": "gate_d1",
 		"coordinates": [
-			127.10528,
-			37.48544,
+			126.802996,
+			37.55866,
 			0
 		]
 	},
 	{
-		"name": "gate_2",
+		"name": "entrance_d1",
 		"coordinates": [
-			127.104605,
-			37.485188,
+			126.80169,
+			37.55976,
 			0
 		]
 	},
 	{
-		"name": "security_2",
-		"coordinates": [
-			127.104424,
-			37.485435,
-			0
-		]
-	},
-	{
-		"name": "fato_2",
-		"coordinates": [
-			127.104425,
-			37.485436,
-			10
-		]
-	},
-	{
-		"name": "start_2",
+		"name": "fato_d2",
 		"coordinates": [
 			127.104127,
 			37.485851,
@@ -408,43 +344,43 @@
 		]
 	},
 	{
-		"name": "Entrance_3",
+		"name": "gate_d2",
 		"coordinates": [
-			127.00887,
-			37.5676,
+			127.104126,
+			37.48585,
 			0
 		]
 	},
 	{
-		"name": "gate_3",
+		"name": "entrance_d2",
 		"coordinates": [
-			127.009632,
-			37.5675,
+			127.10528,
+			37.48544,
 			0
 		]
 	},
 	{
-		"name": "security_3",
-		"coordinates": [
-			127.009709,
-			37.567087,
-			0
-		]
-	},
-	{
-		"name": "fato_3",
-		"coordinates": [
-			127.00971,
-			37.567088,
-			10
-		]
-	},
-	{
-		"name": "start_3",
+		"name": "fato_d3",
 		"coordinates": [
 			127.00937,
 			37.56674,
 			10
+		]
+	},
+	{
+		"name": "gate_d3",
+		"coordinates": [
+			127.009369,
+			37.566739,
+			0
+		]
+	},
+	{
+		"name": "entrance_d3",
+		"coordinates": [
+			127.00887,
+			37.5676,
+			0
 		]
 	}
 ]

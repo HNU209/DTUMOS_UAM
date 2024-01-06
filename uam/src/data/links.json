@@ -122,5 +122,37 @@
 	{
 		"source": "fato_3",
 		"target": "start_3"
+	},
+	{
+		"source": "fato_d0",
+		"target": "gate_d0"
+	},
+	{
+		"source": "gate_d0",
+		"target": "entrance_d0"
+	},
+	{
+		"source": "fato_d1",
+		"target": "gate_d1"
+	},
+	{
+		"source": "gate_d1",
+		"target": "entrance_d1"
+	},
+	{
+		"source": "fato_d2",
+		"target": "gate_d2"
+	},
+	{
+		"source": "gate_d2",
+		"target": "entrance_d2"
+	},
+	{
+		"source": "fato_d3",
+		"target": "gate_d3"
+	},
+	{
+		"source": "gate_d3",
+		"target": "entrance_d3"
 	}
 ]

@@ -19,6 +19,7 @@ const App = () => {
   const [trip, setTrip] = useState([]);
   const [passenger, setPassenger] = useState([]);
   const [passenger_ov, setPassenger_ov] = useState([]);
+  const [passenger_dv, setPassenger_dv] = useState([]);
   const [building, setBuilding] = useState([]);
   const [building_vertiport, setBuildingVertiport] = useState([]);
   const [nodes, setNodes] = useState([]);
@@ -31,6 +32,7 @@ const App = () => {
     const TRIP = await fetchData("trips");
     const PASSENGER = await fetchData("ps");
     const PASSENGER_OV = await fetchData("ps_OV");
+    const PASSENGER_DV = await fetchData("ps_DV");
     const BUILDING = await fetchData("buildings");
     const BUILDING_VERTIPORT = await fetchData("building_vertiport");
     const NODES = await fetchData("nodes");
@@ -40,6 +42,7 @@ const App = () => {
     setTrip((prev) => TRIP);
     setPassenger((prev) => PASSENGER);
     setPassenger_ov((prev) => PASSENGER_OV);
+    setPassenger_dv((prev) => PASSENGER_DV);
     setBuilding((prev) => BUILDING);
     setBuildingVertiport((prev) => BUILDING_VERTIPORT);
     setNodes((prev) => NODES);
@@ -57,7 +60,7 @@ const App = () => {
       {!isloaded && <Splash />}
       {isloaded && (
         <Trip trip={trip} building={building} building_vertiport={building_vertiport}
-              passenger={passenger} passenger_ov={passenger_ov} icon={icon}
+              passenger={passenger} passenger_ov={passenger_ov} passenger_dv={passenger_dv} icon={icon}
               nodes={nodes} links={links} />
       )}
     </div>

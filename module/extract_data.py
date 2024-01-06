@@ -8,6 +8,7 @@ from shapely.geometry import Point
 
 from module.osrm_routing import *
 from module.uam_osrm_routing import *
+from module.uam_vertiport_routing import *
 from module.helper import euclid_distance_cal
 import random as rd
 
@@ -69,10 +70,15 @@ def get_OD_data(vertiport, num = 40) :
         })
 
     OD_data = pd.DataFrame(OD_data)
+    ps_OV_data = pd.DataFrame()
+    ps_DV_data = pd.DataFrame()
+    ps_OV_data["P_O_name"] = OD_data["P_O"]
+    ps_DV_data["P_D_name"] = OD_data["P_D"]
+    
     OD_data["P_O"] = OD_data["P_O"].apply(lambda x: dong_generator(place=x, count=1, road_type=[2,3]))
     OD_data["P_D"] = OD_data["P_D"].apply(lambda x: dong_generator(place=x, count=1, road_type=[2,3]))
     OD_data.to_csv('./data/geometry.csv', index=False)
-    return OD_data
+    return OD_data, ps_OV_data, ps_DV_data
 
 def get_uam_OD_data(OD_data):
     uam_OD_data = []
@@ -96,25 +102,57 @@ def get_ps_OD_data(OD_data):
 
     return ps_OO_data, ps_DD_data
 
-def timestamp_change(ps_OO, uam_OD, ps_DD) :
-    for i in range(len(ps_OO)):
-        waiting_time = 5 
-        uam_OD[i]['timestamp'] = uam_OD[i]['timestamp'] + ps_OO[i]['timestamp'][-1] + waiting_time
-        ps_DD[i]['timestamp'] = ps_DD[i]['timestamp'] + uam_OD[i]['timestamp'][-1]
-        ps_OO[i]['timestamp'] = list(np.array(ps_OO[i]['timestamp']) + i)
-        uam_OD[i]['timestamp'] = list(uam_OD[i]['timestamp'] + i)
-        ps_DD[i]['timestamp'] =  list(ps_DD[i]['timestamp'] + i)
-    return ps_OO, uam_OD, ps_DD
+def timestamp_change(ps_OO, ps_OV, uam_OD, ps_DV, ps_DD) :
+    for i in range(0, len(ps_OV), 4): # 0 ,4, 8, 12.....
+        data = ps_OV[i:i+4]
+        index = int(i/4) # 0, 1, 2, 3 ...
+        for j in range(4) :
+            get_out_time = 3
+            data[j]['timestamp'] =  list(np.array(data[j]['timestamp'])+ ps_OO[index]['timestamp'][-1])
+            if j == 3 :
+                uam_OD[index]['timestamp'] = uam_OD[index]['timestamp'] + data[j]['timestamp'][-1]
+        
+        ps_DV[index]['timestamp'] = ps_DV[index]['timestamp'] + uam_OD[index]['timestamp'][-1]
+        ps_DD[index]['timestamp'] = ps_DD[index]['timestamp'] + ps_DV[index]['timestamp'][-1]
+        ps_OO[index]['timestamp'] = list(np.array(ps_OO[index]['timestamp']) + index)
+        for entry in data:
+                entry['timestamp'] = [t + index for t in entry['timestamp']]
+        uam_OD[index]['timestamp'] = list(uam_OD[index]['timestamp'] + index)
+        ps_DV[index]['timestamp'] = list(ps_DV[index]['timestamp'] + index)
+        ps_DD[index]['timestamp'] =  list (ps_DD[index]['timestamp'] + index)
+    return ps_OO, ps_OV, uam_OD, ps_DV, ps_DD
+
+def timestamp_changes(ps_OO, ps_OV, uam_OD, ps_DD) :
+    for i in range(0, len(ps_OV), 4): # 0 ,4, 8, 12.....
+        data = ps_OV[i:i+4]
+        index = int(i/4) # 0, 1, 2, 3 ...
+        for j in range(4) :
+            get_out_time = 3
+            data[j]['timestamp'] =  list(np.array(data[j]['timestamp'])+ ps_OO[index]['timestamp'][-1])
+            if j == 3 :
+                uam_OD[index]['timestamp'] = uam_OD[index]['timestamp'] + data[j]['timestamp'][-1]
+        ps_DD[index]['timestamp'] = ps_DD[index]['timestamp'] + uam_OD[index]['timestamp'][-1] + get_out_time
+        ps_OO[index]['timestamp'] = list(np.array(ps_OO[index]['timestamp']) + index)
+        for entry in data:
+                entry['timestamp'] = [t + index for t in entry['timestamp']]
+        uam_OD[index]['timestamp'] = list(uam_OD[index]['timestamp'] + index)
+        ps_DD[index]['timestamp'] =  list (ps_DD[index]['timestamp'] + index)
+    return ps_OO, ps_OV, uam_OD, ps_DD
 
 def extract_data(vertiport, num = 40) :
-    OD_data = get_OD_data(vertiport, num)
+    OD_data, ps_OV_data, ps_DV_data = get_OD_data(vertiport, num)
+
     ps_OO_data, ps_DD_data = get_ps_OD_data(OD_data)
     uam_OD_data = get_uam_OD_data(OD_data)
+
     ps_OO = osrm_routing_machine_multiprocess_all(ps_OO_data)
-    ps_DD = osrm_routing_machine_multiprocess_all(ps_DD_data)
+    ps_OV = uam_vertiport_routing_machine_multiprocess(ps_OV_data)
     uam_OD = uam_routing_machine_multiprocess_all(uam_OD_data)
-    ps_OO, uam_OD, ps_DD = timestamp_change(ps_OO, uam_OD, ps_DD)
+    ps_DV = uam_vertiport_D_routing_machine_multiprocess(ps_DV_data)
+    ps_DD = osrm_routing_machine_multiprocess_all(ps_DD_data)
+    
+    ps_OO, ps_OV, uam_OD, ps_DV, ps_DD = timestamp_change(ps_OO, ps_OV, uam_OD, ps_DV, ps_DD)
     ps = ps_OO + ps_DD
     trip = uam_OD
     
-    return ps, trip
+    return ps, trip, ps_OV, ps_DV

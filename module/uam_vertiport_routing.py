@@ -1,6 +1,7 @@
 import numpy as np
 import math
 import json 
+import requests
 import itertools
 
 
@@ -49,16 +50,45 @@ def extract_vertiport_duration_distance(total_route):
    
    return distance_s, distance_h, distance_e, duration_s, duration_h, duration_e
 
+def extract_vertiport_D_duration_distance(total_route):
+    distance_h = height(total_route[0][2],total_route[1][2])
+    duration_h = vertiport_height_time(total_route[0][2],total_route[1][2])
+    distance = sum(list(map(lambda x, y: haversine(x[1], x[0], y[1], y[0]), total_route[1:2], total_route[2:3])))
+    duration = vertiport_haversine_time(distance)
+    return distance_h, distance, duration_h, duration
+
 #################
 # Extract route #
 #################
-def extract_vertiport_route(P_O_name) :
+# def extract_vertiport_route(P_O_name) :
    
-    with open('./data/{0}.json'.format(P_O_name), 'r') as f:
-        vertiport_loc = json.load(f)
+#     with open('./data/{0}.json'.format(P_O_name), 'r') as f:
+#         vertiport_loc = json.load(f)
         
+#     key = list(vertiport_loc[0].keys())[0]
+#     total_route = vertiport_loc[0][key]
+#     return total_route
+
+def extract_vertiport_route(file_name):
+    url = f'https://raw.githubusercontent.com/HNU209/DTUMOS_UAM/main/data/{file_name}.json'
+    response = requests.get(url)
+    if response.status_code == 200:
+        vertiport_loc = json.loads(response.text)
+    else:
+        print(f"Error: {response.status_code}")
+
     key = list(vertiport_loc[0].keys())[0]
     total_route = vertiport_loc[0][key]
+    return total_route
+
+def extract_vertiport_D_route(file_name):
+    url = f'https://raw.githubusercontent.com/HNU209/DTUMOS_UAM/main/data/{file_name} 도착.json'
+    response = requests.get(url)
+    if response.status_code == 200:
+        vertiport_loc = json.loads(response.text)
+    else:
+        print(f"Error: {response.status_code}")
+    total_route = list(vertiport_loc[0].values())[0]
     return total_route
 
 #####################
@@ -77,6 +107,18 @@ def extract_vertiport_timestamp(route, duration_s, duration_h, duration_e) :
     timestamp = np.hstack([np.array([0]),timestamp])
     timestamp = list(itertools.accumulate(timestamp)) 
     timestamp = [timestamp[i:i+2] for i in range(4)]
+    return timestamp
+
+def extract_vertiport_D_timestamp(route, duration, duration_h) :
+    route = route[1:]
+    rt = np.array(route)
+    rt = np.hstack([rt[:-1,:], rt[1:,:]])
+    per = haversine(rt[:,1], rt[:,0], rt[:,4], rt[:,3])
+    per = per / np.sum(per)
+    timestamp = per * duration
+    timestamp = [duration_h] + list(timestamp)
+    timestamp = np.hstack([np.array([0]),timestamp])
+    timestamp = list(itertools.accumulate(timestamp)) 
     return timestamp
 
 ########
@@ -108,6 +150,14 @@ def uam_vertiport_routing_machine(input_data):
 
     return result
 
+def uam_vertiport_D_routing_machine(P_D_name) : 
+    total_route = extract_vertiport_D_route(P_D_name)
+    distance_h, distance, duration_h, duration = extract_vertiport_D_duration_distance(total_route)
+    timestamp = extract_vertiport_D_timestamp(total_route, duration, duration_h)
+    total_distance = distance + distance_h
+    result = {'route': total_route, 'timestamp': timestamp, 'duration': timestamp[-1], 'distance' : total_distance}
+    return result
+
 def uam_vertiport_routing_machine_multiprocess(P_O_name_data):
    P_O_data = P_O_name_data['P_O_name'].tolist()
    result = uam_vertiport_routing_machine(P_O_data[0])
@@ -117,3 +167,8 @@ def uam_vertiport_routing_machine_multiprocess(P_O_name_data):
         for i in range(4) :
             result.append(uam_vertiport_routing_machine(P_O_name)[i])
    return result
+
+def uam_vertiport_D_routing_machine_multiprocess(ps_DV_data) :
+    P_D_data = ps_DV_data['P_D_name'].tolist()
+    results = list(map(uam_vertiport_D_routing_machine, P_D_data))
+    return results

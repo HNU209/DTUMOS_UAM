@@ -112,6 +112,7 @@ const Trip = (props) => {
   const trip = props.trip;
   const ps = currData(props.passenger, time);
   const ps_ov = props.passenger_ov;
+  const ps_dv = props.passenger_dv;
   const building = props.building;
   const building_vertiport = props.building_vertiport;
   const nodes = props.nodes;
@@ -187,6 +188,19 @@ const Trip = (props) => {
         };
         return vendorColorMap[d.vendor] || [255, 255, 50];
       },
+      opacity: 0.7,
+      widthMinPixels: 3,
+      rounded: true,
+      trailLength : 0.4,
+      currentTime: time,
+      shadowEnabled: false
+    }),
+    new TripsLayer({  
+      id: 'trips',
+      data: ps_dv,
+      getPath: d => d.route,
+      getTimestamps: d => d.timestamp,
+      getColor: [255, 255, 0],
       opacity: 0.7,
       widthMinPixels: 3,
       rounded: true,
