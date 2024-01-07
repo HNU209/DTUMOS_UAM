@@ -2,8 +2,8 @@
 import numpy as np
 import itertools
 import requests
-import numpy as np
 import math
+from geopy.distance import geodesic
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
@@ -31,17 +31,43 @@ def height(altitude1, altitude2):
     height = abs(altitude1 - altitude2)/1000
     return height
 
+def diagonal(altitude1, altitude2):
+    height = abs(altitude1-altitude2)/1000
+    distance = math.sqrt((height**2)+(height**2))
+    return distance
+
 # 직선 거리 걸리는 시간
-def haversine_time(distance) :
+def uam_haversine_time(distance) :
    average_speed = 50 # km/h
    total_time = math.ceil((distance/average_speed*60)*100)/100 # 분
    return total_time
 
-def height_time(altitude1, altitude2) :
+def uam_height_time(altitude1, altitude2) :
    altitude = height(altitude1, altitude2)
    average_speed = 10 # km/h
    total_time = math.ceil((altitude/average_speed*60)*100)/100 # 분
    return total_time 
+
+# 사선
+def uam_diagonal_time(distance) :
+    average_speed = 40 # km/h
+    total_time = math.ceil((distance/average_speed*60)*100)/100
+    return total_time
+
+# 사선 경로 추가
+def lonlat_pythagoras(loc1, loc2) :
+    point1 = [loc1[1], loc1[0]]
+    point2 = [loc2[1], loc2[0]]
+    # 서울역이면 고도는 40
+    if point1 == [37.55311, 126.97062] or point2 == [37.55311, 126.97062] :
+        target_distance = 0.04
+    else :
+        target_distance = 0.09
+    distance = geodesic(point1, point2).kilometers
+    lat = point1[0] + (point2[0] - point1[0]) * (target_distance / distance)
+    lon = point1[1] + (point2[1] - point1[1]) * (target_distance / distance)
+    point = [lon,lat]
+    return point
 
 #############
 # OSRM base #
@@ -92,18 +118,16 @@ def uam_get_res(point):
 # Extract duration, distance #
 ##############################
 def extract_uam_duration_distance(total_route):
-   
-   duration_s_h = height_time(total_route[0][2],total_route[1][2])
-   duration_e_h = height_time(total_route[-1][2],total_route[-2][2])
-   distance_s_h = height(total_route[0][2],total_route[1][2])
-   distance_e_h = height(total_route[-1][2],total_route[-2][2])
+    
+    distance_s_h = diagonal(total_route[0][2],total_route[1][2])
+    distance_e_h = diagonal(total_route[-1][2],total_route[-2][2])
+    duration_s_h = uam_diagonal_time(distance_s_h)
+    duration_e_h = uam_diagonal_time(distance_e_h)
 
-   distance = sum(list(map(lambda x, y: haversine(x[1], x[0], y[1], y[0]), total_route[1:-2], total_route[2:-1])))
-   duration = haversine_time(distance)
+    distance = sum(list(map(lambda x, y: haversine(x[1], x[0],  y[1], y[0]), total_route[1:-2], total_route[2:-1])))
+    duration = uam_haversine_time(distance)
 
-   
-   return duration_s_h, duration, duration_e_h, distance_s_h, distance, distance_e_h
-
+    return duration_s_h, duration, duration_e_h, distance_s_h, distance, distance_e_h
 
 def extract_duration_distance(res):
        
@@ -115,18 +139,21 @@ def extract_duration_distance(res):
 #################
 # Extract route #
 #################
-def extract_uam_route(res) : # lon lat lon lat
+def extract_uam_route(res) :
     route = extract_route(res)
-    loc_remove_s = [point - (1e-06) for point in route[0]]
-    loc_remove_e = [point - (1e-06) for point in route[-1]]
-    route.insert(0, loc_remove_s)
-    route.append(loc_remove_e)
+    loc_remove_s = lonlat_pythagoras(route[0],route[1])
+    loc_remove_e = lonlat_pythagoras(route[-1],route[-2])
+    route.insert(1, loc_remove_s)
+    route.insert(-1, loc_remove_e)
     for i in range(len(route)):
         if i == 0 or i == len(route) - 1:
-            route[i].append(0)
+            # 처음 또는 끝이 서울역 위경도면 60이 되도록 수정
+            if route[i] == [126.97062, 37.55311] :
+                route[i].append(60)
+            else : route[i].append(10)
         else:
             route[i].append(100)
-    
+
     return route
 
 #####################
