@@ -1,5 +1,21 @@
 [
 	{
+		"source": "\uae40\ud3ec\uacf5\ud56d \ud30c\ud1a0",
+		"target": "\uae40\ud3ec\uacf5\ud56d"
+	},
+	{
+		"source": "\uc11c\uc6b8\uc5ed \ud30c\ud1a0",
+		"target": "\uc11c\uc6b8\uc5ed"
+	},
+	{
+		"source": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790 \ud30c\ud1a0",
+		"target": "\ub3d9\ub300\ubb38\ub514\uc790\uc778\ud504\ub77c\uc790"
+	},
+	{
+		"source": "\uc218\uc11c\uc5ed \ud30c\ud1a0",
+		"target": "\uc218\uc11c\uc5ed"
+	},
+	{
 		"source": "\uae40\ud3ec\uacf5\ud56d",
 		"target": "\uae40\ud3ec\uacf5\ud56d \ud55c\uac151"
 	},
