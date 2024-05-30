@@ -130,6 +130,7 @@ const Trip = (props) => {
     return () => window.cancelAnimationFrame(animation.id);
   }, [animation, animate]);
 
+  // 버티포트
   const layers = [
     new IconLayer({
       id: "location",
@@ -225,12 +226,14 @@ const Trip = (props) => {
       widthMinPixels: 3,
     }),
 
+
+    // 수서역
     new PathLayer({  
       id: 'lines',
       data: slinks,
       getPath: d => d.lines,
-      getColor: [255, 0 ,0],
-      opacity: 0.5,
+      getColor: [255, 255 ,0],
+      opacity: 1,
       widthMinPixels: 1,
       widthScale: 1,
       pickable: true,  
@@ -238,19 +241,19 @@ const Trip = (props) => {
       shadowEnabled: false
 
     }),
-
     new ScatterplotLayer({
       id: "icon",
       data: snodes,
       getPosition: (d) => d.coordinates,
       getFillColor: [255, 0, 255],
-      getRadius: (d) => 1,
-      opacity: 0.1,
+      getRadius: (d) => 10,
+      opacity: 1,
       pickable: false,
-      radiusMinPixels: 1,
-      radiusMaxPixels: 2,
+      radiusMinPixels: 3,
+      radiusMaxPixels: 10,
     }),
 
+    // 건물 
     new PolygonLayer({
       id: 'buildings',
       data: building,
