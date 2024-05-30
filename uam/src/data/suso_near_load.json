@@ -1,0 +1,506 @@
+[
+	{
+		"coordinates": [
+			126.9773,
+			37.47637
+		],
+		"name": "\ub0a8\uc11c\uc6b8\ub18d\ud611\ub0a8\ud604\ub3d9\uc9c0\uc810",
+		"vendor": 5
+	},
+	{
+		"coordinates": [
+			127.22408,
+			37.54415
+		],
+		"name": "\uc2a4\ud0c0\ud544\ub4dc\ud558\ub0a8\uc8fc\ucc28\uc7a5",
+		"vendor": 22
+	},
+	{
+		"coordinates": [
+			127.09513,
+			37.52011
+		],
+		"name": "\uc7a0\uc2e4\ub300\uad50\uc804\ub9dd\uc27c\ud130",
+		"vendor": 7
+	},
+	{
+		"coordinates": [
+			127.0943,
+			37.46665
+		],
+		"name": "\uc138\uace1\ud478\ub974\uc9c0\uc624",
+		"vendor": 17
+	},
+	{
+		"coordinates": [
+			127.06957,
+			37.01835
+		],
+		"name": "\uc9c0\uc81c",
+		"vendor": 36
+	},
+	{
+		"coordinates": [
+			126.73871,
+			37.36236
+		],
+		"name": "\uc624\uc774\ub3c4",
+		"vendor": 32
+	},
+	{
+		"coordinates": [
+			127.0746,
+			37.48847
+		],
+		"name": "\uc5f0\uae08\ub9e4\uc810",
+		"vendor": 1
+	},
+	{
+		"coordinates": [
+			127.1044,
+			37.48265
+		],
+		"name": "\uc7c1\uace8\ub9c8\uc744",
+		"vendor": 4
+	},
+	{
+		"coordinates": [
+			127.02846,
+			37.52707
+		],
+		"name": "\uc555\uad6c\uc815",
+		"vendor": 30
+	},
+	{
+		"coordinates": [
+			127.09427,
+			37.48209
+		],
+		"name": "\uac15\ub0a8\ub354\uc0f5\ud3ec\ub808\uc2a4\ud2b8\uc544\ud30c\ud2b8",
+		"vendor": 16
+	},
+	{
+		"coordinates": [
+			127.10877,
+			37.34022
+		],
+		"name": "\uc624\ub9ac\uc5ed",
+		"vendor": 24
+	},
+	{
+		"coordinates": [
+			129.04156,
+			35.11516
+		],
+		"name": "\ubd80\uc0b0",
+		"vendor": 36
+	},
+	{
+		"coordinates": [
+			127.09761,
+			37.48528
+		],
+		"name": "\uad81\ub9c8\uc744",
+		"vendor": 2
+	},
+	{
+		"coordinates": [
+			127.05579,
+			37.50783
+		],
+		"name": "\ud3ec\uc2a4\ucf54\uc0ac\uac70\ub9ac",
+		"vendor": 9
+	},
+	{
+		"coordinates": [
+			126.97399,
+			37.47593
+		],
+		"name": "\uc608\uc220\uc778\ub9c8\uc744.\uc0ac\ub2f9\ucd08\ub4f1\ud559\uad50",
+		"vendor": 5
+	},
+	{
+		"coordinates": [
+			127.22148,
+			37.51952
+		],
+		"name": "\ucc9c\ud604\ub3d9\ud589\uc815\ubcf5\uc9c0\uc13c\ud130\uc785\uad6c",
+		"vendor": 29
+	},
+	{
+		"coordinates": [
+			127.09654,
+			36.3327
+		],
+		"name": "\uacf5\uc8fc",
+		"vendor": 38
+	},
+	{
+		"coordinates": [
+			127.22188,
+			37.54475
+		],
+		"name": "\uc2a4\ud0c0\ud544\ub4dc\ud558\ub0a8",
+		"vendor": 22
+	},
+	{
+		"coordinates": [
+			127.11943,
+			37.27598
+		],
+		"name": "\uc218\uc6d0\ucee8\ud2b8\ub9ac\ud074\ub7fd",
+		"vendor": 26
+	},
+	{
+		"coordinates": [
+			127.09807,
+			37.51252
+		],
+		"name": "\uc7a0\uc2e4\uc5ed.\ub86f\ub370\uc6d4\ub4dc",
+		"vendor": 27
+	},
+	{
+		"coordinates": [
+			127.13142,
+			37.48537
+		],
+		"name": "\ud55c\ub9bc\uc5f0\uc608\uc608\uc220\uace0\uad50",
+		"vendor": 10
+	},
+	{
+		"coordinates": [
+			127.20253,
+			37.55257
+		],
+		"name": "\ud558\ub0a8\ud48d\uc0b0\uc5ed.\ud48d\uc0b0\uc544\uc774\ud30c\ud06c5\ub2e8\uc9c0",
+		"vendor": 21
+	},
+	{
+		"coordinates": [
+			127.09475,
+			37.50701
+		],
+		"name": "\uc7a0\uc2e4119\uc548\uc804\uc13c\ud130",
+		"vendor": 12
+	},
+	{
+		"coordinates": [
+			127.05821,
+			37.50343
+		],
+		"name": "\ub300\uce58\uc0ac\uac70\ub9ac",
+		"vendor": 9
+	},
+	{
+		"coordinates": [
+			127.13493,
+			37.43527
+		],
+		"name": "\uc218\uc131\uad50.\uc18c\ubc29\uc11c",
+		"vendor": 20
+	},
+	{
+		"coordinates": [
+			127.2215,
+			37.52827
+		],
+		"name": "\uc815\uc2ec\uc0ac.\uc0bc\uc77c\uacf5\uc0ac",
+		"vendor": 29
+	},
+	{
+		"coordinates": [
+			127.22628,
+			37.54133
+		],
+		"name": "\ubd80\uc601\uc544\ud30c\ud2b8",
+		"vendor": 22
+	},
+	{
+		"coordinates": [
+			127.12548,
+			37.27125
+		],
+		"name": "\uac15\ub0a8\ub300\uc5ed.\uac15\ub0a8\ub300\uc785\uad6c",
+		"vendor": 26
+	},
+	{
+		"coordinates": [
+			127.10203,
+			37.4246
+		],
+		"name": "\uc2dc\ud765\uc0ac\uac70\ub9ac.\uace0\ub4f1\uacf5\uacf5\uc8fc\ud0dd\uc9c0\uad6c",
+		"vendor": 23
+	},
+	{
+		"coordinates": [
+			127.1289,
+			37.48326
+		],
+		"name": "\uad6c\uc1a1\ud30c\uc138\ubb34\uc11c",
+		"vendor": 10
+	},
+	{
+		"coordinates": [
+			127.17676,
+			37.56574
+		],
+		"name": "\uac15\uc77c\ucd08\ub4f1\ud559\uad50",
+		"vendor": 8
+	},
+	{
+		"coordinates": [
+			127.12588,
+			37.42953
+		],
+		"name": "\ubaa8\ub780\uc2dc\uc7a5",
+		"vendor": 18
+	},
+	{
+		"coordinates": [
+			127.18847,
+			37.22425
+		],
+		"name": "\uba85\uc9c0\ub300",
+		"vendor": 24
+	},
+	{
+		"coordinates": [
+			127.08604,
+			37.51042
+		],
+		"name": "\uc7a0\uc2e4\uc0c8\ub0b4\uc5ed\uc55e",
+		"vendor": 13
+	},
+	{
+		"coordinates": [
+			127.21075,
+			37.22945
+		],
+		"name": "\ud0dc\uc131\uc911\uace0\ub4f1\ud559\uad50.\ud604\ub300\uc544\ud30c\ud2b8",
+		"vendor": 25
+	},
+	{
+		"coordinates": [
+			127.22123,
+			37.52222
+		],
+		"name": "\ubcf5\uc9c0\ud68c\uad00.\ud558\ub0a8\uacbd\ucc30\uc11c.\ub4f1\uae30\uc18c.\ub9c8\ub8e8\uacf5\uc6d0",
+		"vendor": 29
+	},
+	{
+		"coordinates": [
+			127.05568,
+			37.53579
+		],
+		"name": "\uc131\uc218\ub3d9\ucc28\uace0\uc9c0",
+		"vendor": 6
+	},
+	{
+		"coordinates": [
+			127.14403,
+			37.47723
+		],
+		"name": "\uc1a1\ud30c\uc640\uc774\uc988\ub354\uc0f5.\uc5e0\ucf54\ud0c0\uc6b4\uc13c\ud2b8\ub85c\uc5d8",
+		"vendor": 14
+	},
+	{
+		"coordinates": [
+			127.10447,
+			37.48555
+		],
+		"name": "\uc218\uc11c",
+		"vendor": 34
+	},
+	{
+		"coordinates": [
+			127.10475,
+			37.39343
+		],
+		"name": "\uc9c0\uc5ed\ub09c\ubc29\uacf5\uc0ac",
+		"vendor": 28
+	},
+	{
+		"coordinates": [
+			127.08461,
+			37.53219
+		],
+		"name": "\uc790\uc591\uc544\ud30c\ud2b8\uc55e",
+		"vendor": 7
+	},
+	{
+		"coordinates": [
+			126.99185,
+			37.57148
+		],
+		"name": "\uc885\ub85c3\uac00",
+		"vendor": 31
+	},
+	{
+		"coordinates": [
+			127.09275,
+			37.48143
+		],
+		"name": "\uac15\ub0a8\ub370\uc2dc\uc559\ud3ec\ub808\uc0c1\uac00\uc55e",
+		"vendor": 16
+	},
+	{
+		"coordinates": [
+			127.10461,
+			36.7942
+		],
+		"name": "\ucc9c\uc548\uc544\uc0b0",
+		"vendor": 37
+	},
+	{
+		"coordinates": [
+			127.111,
+			37.50063
+		],
+		"name": "\uc1a1\ud30c\uc5ed.\ud5ec\ub9ac\uc624\uc2dc\ud2f0",
+		"vendor": 27
+	},
+	{
+		"coordinates": [
+			127.20688,
+			37.5515
+		],
+		"name": "\ub098\ub8f0.\ud48d\uc0b0\uadfc\ub9b03\ud638\uacf5\uc6d0",
+		"vendor": 21
+	},
+	{
+		"coordinates": [
+			127.02871,
+			37.526
+		],
+		"name": "\uc555\uad6c\uc815\uc5ed3\ubc88\ucd9c\uad6c",
+		"vendor": 11
+	},
+	{
+		"coordinates": [
+			127.13825,
+			37.43652
+		],
+		"name": "MD\uc544\ud30c\ud2b8",
+		"vendor": 20
+	},
+	{
+		"coordinates": [
+			127.43415,
+			36.33216
+		],
+		"name": "\ub300\uc804",
+		"vendor": 35
+	},
+	{
+		"coordinates": [
+			126.79064,
+			35.13804
+		],
+		"name": "\uad11\uc8fc\uc1a1\uc815",
+		"vendor": 39
+	},
+	{
+		"coordinates": [
+			127.03606,
+			37.52875
+		],
+		"name": "\uc555\uad6c\uc815\ud30c\ucd9c\uc18c",
+		"vendor": 11
+	},
+	{
+		"coordinates": [
+			126.98417,
+			37.5484
+		],
+		"name": "\ud6c4\uc554\uc57d\uc218\ud130",
+		"vendor": 3
+	},
+	{
+		"coordinates": [
+			127.10203,
+			37.3876
+		],
+		"name": "\ub099\uc0dd\uace0\ub4f1\ud559\uad50",
+		"vendor": 28
+	},
+	{
+		"coordinates": [
+			127.13693,
+			37.48061
+		],
+		"name": "\uc11c\uc6b8\ubc84\uc2a4\uc885\uc810",
+		"vendor": 0
+	},
+	{
+		"coordinates": [
+			127.11992,
+			37.42995
+		],
+		"name": "\uc131\ub0a8\ub3d9\ub300\ud615\uc8fc\ucc28\uc7a5",
+		"vendor": 18
+	},
+	{
+		"coordinates": [
+			127.10213,
+			37.37757
+		],
+		"name": "\uc131\ub0a8\uc678\uace0\uc785\uad6c",
+		"vendor": 28
+	},
+	{
+		"coordinates": [
+			127.06068,
+			37.48268
+		],
+		"name": "\uac1c\ud3ec1\ub2e8\uc9c0\uc5f0\uae08\ub9e4\uc7a5",
+		"vendor": 15
+	},
+	{
+		"coordinates": [
+			127.10192,
+			37.42077
+		],
+		"name": "\uc2dc\ud765\uc0ac\uac70\ub9ac",
+		"vendor": 23
+	},
+	{
+		"coordinates": [
+			126.38943,
+			34.79587
+		],
+		"name": "\ubaa9\ud3ec",
+		"vendor": 40
+	},
+	{
+		"coordinates": [
+			127.09026,
+			37.50768
+		],
+		"name": "\uc7a0\uc2e4\ud2b8\ub9ac\uc9c0\uc6c0",
+		"vendor": 13
+	},
+	{
+		"coordinates": [
+			127.04471,
+			37.54362
+		],
+		"name": "\uc11c\uc6b8\uc232",
+		"vendor": 33
+	},
+	{
+		"coordinates": [
+			127.10243,
+			37.48692
+		],
+		"name": "\uc218\uc11c\uc5ed5\ubc88\ucd9c\uad6c",
+		"vendor": 19
+	},
+	{
+		"coordinates": [
+			127.17543,
+			37.56403
+		],
+		"name": "\uac15\uc77c\ub9ac\ubc84\ud30c\ud06c6\ub2e8\uc9c0",
+		"vendor": 8
+	}
+]
