@@ -117,7 +117,7 @@ const Trip = (props) => {
   const links = props.links;
 
   const snodes = props.snodes;
-  const slinks = props.sinks;
+  const slinks = props.slinks;
 
 
   const animate = useCallback(() => {
@@ -232,7 +232,7 @@ const Trip = (props) => {
       id: 'lines',
       data: slinks,
       getPath: d => d.lines,
-      getColor: [255, 255 ,0],
+      getColor: [0, 255 ,0],
       opacity: 1,
       widthMinPixels: 1,
       widthScale: 1,
@@ -249,8 +249,8 @@ const Trip = (props) => {
       getRadius: (d) => 10,
       opacity: 1,
       pickable: false,
-      radiusMinPixels: 3,
-      radiusMaxPixels: 10,
+      radiusMinPixels: 1,
+      radiusMaxPixels: 5,
     }),
 
     // 건물 

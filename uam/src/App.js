@@ -44,8 +44,15 @@ const App = () => {
     const NODES = await fetchData("nodes");
     const LINKS = await fetchData("links");
 
-    const SNODES = await fetchData("suso_near_stops");
-    const SLINKS = await fetchData("suso_near_load");
+    const SNODES = await Promise.all([
+      fetchData("bus_icon"),
+      fetchData("trail_icon"),
+    ]);
+
+    const SLINKS = await Promise.all([
+      fetchData("bus_line"),
+      fetchData("trail_line"),
+    ]);
 
     setIcon((prev) => ICON);
     setTrip((prev) => TRIP);
