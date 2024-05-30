@@ -16,14 +16,20 @@ const fetchData = (FilE_NAME) => {
 
 const App = () => {
   const [icon, setIcon] = useState([]);
+
   const [trip, setTrip] = useState([]);
   const [passenger, setPassenger] = useState([]);
   const [passenger_ov, setPassenger_ov] = useState([]);
   const [passenger_dv, setPassenger_dv] = useState([]);
+
   const [building, setBuilding] = useState([]);
   const [building_vertiport, setBuildingVertiport] = useState([]);
+
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
+
+  const [snodes, setSNodes] = useState([])
+  const [slinks, setSLinks] = useState([]);
 
   const [isloaded, setIsLoaded] = useState(false);
 
@@ -38,6 +44,9 @@ const App = () => {
     const NODES = await fetchData("nodes");
     const LINKS = await fetchData("links");
 
+    const SNODES = await fetchData("suso_near_stops");
+    const SLINKS = await fetchData("suso_near_load");
+
     setIcon((prev) => ICON);
     setTrip((prev) => TRIP);
     setPassenger((prev) => PASSENGER);
@@ -47,6 +56,9 @@ const App = () => {
     setBuildingVertiport((prev) => BUILDING_VERTIPORT);
     setNodes((prev) => NODES);
     setLinks((prev) => LINKS);
+
+    setSNodes((prev) => SNODES);
+    setSLinks((prev) => SLINKS);
 
     setIsLoaded(true);
   }, []);
@@ -59,9 +71,24 @@ const App = () => {
     <div className="container">
       {!isloaded && <Splash />}
       {isloaded && (
-        <Trip trip={trip} building={building} building_vertiport={building_vertiport}
-              passenger={passenger} passenger_ov={passenger_ov} passenger_dv={passenger_dv} icon={icon}
-              nodes={nodes} links={links} />
+        <Trip trip={trip}
+              passenger={passenger} 
+              passenger_ov={passenger_ov} 
+              passenger_dv={passenger_dv} 
+
+              building={building}
+              building_vertiport={building_vertiport}
+
+              icon={icon}
+
+              nodes={nodes}
+              links={links} 
+
+              snodes={snodes}
+              slinks={slinks} 
+
+
+              />
       )}
     </div>
   );

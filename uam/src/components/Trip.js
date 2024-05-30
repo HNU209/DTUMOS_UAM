@@ -5,11 +5,8 @@ import DeckGL from '@deck.gl/react';
 import {Map} from 'react-map-gl';
 
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
-import {PolygonLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
-import {IconLayer} from "@deck.gl/layers";
-// import {ScatterplotLayer} from "@deck.gl/layers";
-import {LineLayer} from "@deck.gl/layers";
+import {IconLayer,LineLayer, PolygonLayer, ScatterplotLayer, PathLayer} from "@deck.gl/layers";
 
 import Slider from "@mui/material/Slider";
 import legend from "../image/legend.png";
@@ -115,9 +112,12 @@ const Trip = (props) => {
   const ps_dv = props.passenger_dv;
   const building = props.building;
   const building_vertiport = props.building_vertiport;
+
   const nodes = props.nodes;
   const links = props.links;
 
+  const snodes = props.snodes;
+  const slinks = props.sinks;
 
 
   const animate = useCallback(() => {
@@ -225,22 +225,31 @@ const Trip = (props) => {
       widthMinPixels: 3,
     }),
 
-    // new ScatterplotLayer({
-    //   id : "ScatterplotLayer",
-    //   data : nodes,
-    //   pickable:true,
-    //   opacity:0.8,
-    //   stroked:true,
-    //   filled:true,
-    //   radiusScale:1,
-    //   radiusMinPixels:1,
-    //   radiusMaxPixels:10,
-    //   lineWidthMinPixels: 1,
-    //   getPosition: d => d.coordinates,
-    //   getRradius: d => 100,
-    //   getFillColor:[255, 0, 0],
-    //   getLineColor:[255, 0, 0],
-    // }),
+    new PathLayer({  
+      id: 'lines',
+      data: slinks,
+      getPath: d => d.lines,
+      getColor: [255, 0 ,0],
+      opacity: 0.5,
+      widthMinPixels: 1,
+      widthScale: 1,
+      pickable: true,  
+      rounded: true,
+      shadowEnabled: false
+
+    }),
+
+    new ScatterplotLayer({
+      id: "icon",
+      data: snodes,
+      getPosition: (d) => d.coordinates,
+      getFillColor: [255, 0, 255],
+      getRadius: (d) => 1,
+      opacity: 0.1,
+      pickable: false,
+      radiusMinPixels: 1,
+      radiusMaxPixels: 2,
+    }),
 
     new PolygonLayer({
       id: 'buildings',
@@ -253,6 +262,7 @@ const Trip = (props) => {
       getFillColor: DEFAULT_THEME.buildingColor,
       material: DEFAULT_THEME.material
     }),
+
     new PolygonLayer({
       id: 'buildings',
       data: building_vertiport,
