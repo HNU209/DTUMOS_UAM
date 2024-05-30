@@ -51,7 +51,7 @@ const App = () => {
 
     const SLINKS = await Promise.all([
       fetchData("bus_line"),
-      // fetchData("trail_line"),
+      fetchData("trail_line"),
     ]);
 
     setIcon((prev) => ICON);
